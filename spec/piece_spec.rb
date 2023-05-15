@@ -129,4 +129,16 @@ describe Piece do
       expect(pawn.execute('pawn move')).to eq("there is an object already occupied, you should not place this Pawn here")
     end
   end
+
+  context 'invalid coordinates and commands' do
+    it 'out of range co-ordinates' do
+      expect(pawn.execute('pawn place 0,-2,EAST,BLACK')).to eq(false)
+      expect(rook.execute('rook place 9,6,SOUTH,WHITE')).to eq(false)
+    end
+
+    it 'Invalid commands' do
+      expect{pawn.execute('pawn reportt')}.to raise_error(ArgumentError)
+      expect{rook.execute('rook lefftt')}.to raise_error(ArgumentError)
+    end
+  end
 end
