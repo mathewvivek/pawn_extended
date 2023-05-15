@@ -45,13 +45,17 @@ class Piece
 
     case @direction
     when :north
-      movement = value.eql?(1) ? { x: 0, y: 1} : { x: 0, y: 2 }
+      movement = value.eql?(1) ? { x: 0, y: 1} : { x: 0, y: 2 } if self.type.eql?("pawn")
+      movement = value.eql?(1) ? { x: 0, y: 1} : { x: 0, y: value } if self.type.eql?("rook")
     when :east
-      movement = value.eql?(1) ? { x: 1, y: 0} : { x: 2, y: 0 }
+      movement = value.eql?(1) ? { x: 1, y: 0} : { x: 2, y: 0 } if self.type.eql?("pawn")
+      movement = value.eql?(1) ? { x: 0, y: 1} : { x: value, y: 0 } if self.type.eql?("rook")
     when :south
-      movement = value.eql?(1) ? { x: 0, y: -1} : { x: 0, y: -2 }
+      movement = value.eql?(1) ? { x: 0, y: -1} : { x: 0, y: -2 } if self.type.eql?("pawn")
+      movement = value.eql?(1) ? { x: 0, y: 1} : { x: 0, y: -value } if self.type.eql?("rook")
     when :west
-      movement = value.eql?(1) ? { x: -1, y: 0} : { x: -2, y: 0 }
+      movement = value.eql?(1) ? { x: -1, y: 0} : { x: -2, y: 0 } if self.type.eql?("pawn")
+      movement = value.eql?(1) ? { x: 0, y: 1} : { x: -value, y: 0 } if self.type.eql?("rook")
     end
 
     move_complete = true
@@ -106,8 +110,7 @@ class Piece
 
     raise ArgumentError, 'Invalid command' unless COMMANDS.include?(command) || command.to_s.include?("move")
 
-
-    if command.to_s.eql?("move(2)")
+    if (["move(2)","move(3)","move(4)","move(5)","move(6)","move(7)"].include?(command.to_s) && self.type.eql?("rook")) || (command.to_s.eql?("move(2)") && self.type.eql?("pawn"))
       position = command.to_s.split("(")[1].gsub!(")","").to_i
       command = :move_with_position
     elsif command.to_s.eql?("move(1)")
