@@ -8,6 +8,9 @@
 ## Rook can move multiple double squares
 ![c](https://github.com/mathewvivek/pawn_extended/assets/919258/b1be680c-ef70-42cb-bd41-c27a39b23ef0)
 
+## Rook can move many squares
+![f](https://github.com/mathewvivek/pawn_extended/assets/919258/957cf85e-a5a4-4e2c-98ca-12768b2e1137)
+
 ## Pawn can move multiple squares only once.
 ![d](https://github.com/mathewvivek/pawn_extended/assets/919258/6140b9a8-1b20-441d-8dbf-7b22d58eb87d)
 
