@@ -10,3 +10,6 @@
 
 ## Pawn can move multiple squares only once.
 ![d](https://github.com/mathewvivek/pawn_extended/assets/919258/6140b9a8-1b20-441d-8dbf-7b22d58eb87d)
+
+## Causal Testing ( Both pawn & rook )
+![e](https://github.com/mathewvivek/pawn_extended/assets/919258/9b447605-9ba2-4703-9d9e-57a2c8075ab8)
